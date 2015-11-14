@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Speak with Samu</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="main.css" />
+		<script type="text/javascript" src='main.js' ></script>
+	</head>
+	<body onload='SamuInit();'>
+		<div class='cntnr' id='scrt'>
+			<div id='chatarea'>
+				&nbsp;
+			</div>
+			<div id='inputarea'>
+				<input type='button' value='Send' id='send' disabled='true' onClick='msg_send_clicked();' />
+				<div style='overflow: hidden;padding-right: .5em;'>
+					<input type='text' id='message' /> 
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
