@@ -1,28 +1,30 @@
 var sock;
 var msgcontainer;
 
+var host='localhost';
+
 function SamuInit() {
 	msgcontainer = document.getElementById('chatarea');
 	if("WebSocket" in window){
-		sock = new WebSocket('ws://localhost:7268');
+		sock = new WebSocket('ws://'+host+':7268');
 		sock.onopen = function(){
 			msgcontainer_append("Now you can talk to Samu.", "white");
 			document.getElementById('send').disabled=false;
-			
+
 		}
 		sock.onmessage = function(evt){
 			msgcontainer_append(evt.data, "green");
 		}
-		
+
 		sock.onclose = function(){
 			msgcontainer_append("Connection lost. Refresh your browser!", "red");
 			document.getElementById('send').disabled=true;
 		}
-		
+
 	}else{
 		msgcontainer_append("Your browser is not supported. Get firefox, edge or chrome!", "red");
 	}
-	
+
 }
 
 function sendmsg(msg){
