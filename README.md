@@ -24,6 +24,6 @@ node server.js
 client:
 -------
 
--under the client directory copy all the files to your http daemon's directory
--change the host in your main.js
--enjoy
+- under the client directory copy all the files to your http daemon's directory
+- change the host in your main.js
+- enjoy
