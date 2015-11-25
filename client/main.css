@@ -1,40 +1,100 @@
-body {
+@font-face {
+    font-family: UbuntuLight;
+    src: url("Ubuntu-L.ttf");
+}
+@font-face {
+    font-family: UbuntuRegular;
+    src: url("Ubuntu-R.ttf");
+}
+
+* {
 	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html, body {
+	width: 100%;
 	height: 100%;
 }
 
+div.clear {
+	clear: both;
+}
+
+body {
+	margin: 20px;
+	height: 100%;
+	background-color: #bbbbcc;
+	font-family: UbuntuLight, sans-serif;
+}
+
+h1 {
+	font-family: UbuntuRegular, sans-serif;
+	margin-bottom: 15px;
+}
+
+section#state {
+	margin: 10px 0;
+}
+
 .cntnr {
-    display: table;
-    height: 100%;
-    width: 100%;
-    background: black; 
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    border: 2px solid black;
+    -webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		padding: 10px;
+		background-color: #777;
 }
 
-#chatarea{
-    display: table-row;
-    color: white;
+section#chatarea {
+  color: white;
 	width: 100%;
+	height: 95%;
+	max-height: 95%;
+	overflow: auto;
 }
 
-#inputarea{
-
-    display: table-row;
-    width: 100%;
-	height: 2em;
-
+section#chatarea div#message{
+    min-width: 35%;
+    width: 35%;
+    padding: 15px;
+    -webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		border: 1px solid #ccc;
+		background-color: #ddd;
+		color: black;
+		margin: 3px 0;
 }
 
-#message{
-    width: 100%;
-    height: 100%;
-}
 
-
-#send{
+section#chatarea div#message.client {
 	float: right;
+}
+
+section#chatarea div#message.samu {
+	float: left;
+}
+
+section#inputarea {
+	vertical-align: top;
+}
+
+section#inputarea input#mess_input{
+	margin: auto;
+	padding: 5px;
+  width: 90%;
+	border-top: solid 2px white;
+	height: 5%;
+}
+
+section#inputarea input#send{
+	width: 60px;
+	margin-top: -10px;
+	height: 5%;
+	padding: 6px;
 }

@@ -4,48 +4,51 @@ var msgcontainer;
 var host='localhost';
 
 function SamuInit() {
-	msgcontainer = document.getElementById('chatarea');
+	msgcontainer = $("#chatarea");
 	if("WebSocket" in window){
+		var state = $("section#state span");
+		var send = $("input#send");
 		sock = new WebSocket('ws://'+host+':7268');
 		sock.onopen = function(){
-			msgcontainer_append("Now you can talk to Samu.", "white");
-			document.getElementById('send').disabled=false;
+			state.html("Now you can talk to Samu.");
+			send.prop("disabled",false);
 
 		}
 		sock.onmessage = function(evt){
-			msgcontainer_append(evt.data, "green");
+			msgcontainer_append(evt.data, "Amminadab");
 		}
 
 		sock.onclose = function(){
-			msgcontainer_append("Connection lost. Refresh your browser!", "red");
-			document.getElementById('send').disabled=true;
+			state.html("Connection lost. Refresh your browser!");
+			send.prop("disabled",true);
 		}
 
 	}else{
-		msgcontainer_append("Your browser is not supported. Get firefox, edge or chrome!", "red");
+		state.html("Your browser is not supported. Please update your browser for HTML5 support!");
 	}
 
 }
 
 function sendmsg(msg){
 	sock.send(msg);
-	msgcontainer_append(msg, 'blue');
+	msgcontainer_append(msg, "You");
 }
 
 
-function msgcontainer_append(msg, color){
-	var msgdiv = document.createElement('div');
-	msgdiv.style = "color: "+ color + ";";
-	msgdiv.innerHTML = msg;
-	msgcontainer.appendChild(msgdiv);
-	document.getElementById('message').focus();
-	var scrll= document.getElementById('scrt');
-	scrll.scrollTop=scrll.scrollHeight;
+function msgcontainer_append(msg, sender, color){
+	
+	var msgDiv = $("<div>");
+	msgDiv.attr('id',"message").addClass((sender=='Amminadab')?"samu":"client").html(sender + ":<br>" + msg).appendTo(msgcontainer);
+	$("<div>").addClass("clear").appendTo(msgcontainer);
+	
+	var scrll = $("#chatarea");
+	scrll.animate({ scrollTop: scrll[0].scrollHeight}, 25);
+
 }
 
 function msg_send_clicked(){
-	var txtinput = document.getElementById('message');
-	if(txtinput.value != "")
-		sendmsg(txtinput.value);
-	txtinput.value = "";
+	var txtinput =  $("input#mess_input");
+	if(txtinput.val() != "")
+		sendmsg(txtinput.val());
+	txtinput.val("");
 }

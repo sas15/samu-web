@@ -1,22 +1,24 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Speak with Samu</title>
+		<title>Speak with Amminadab</title>
 		<meta charset='utf-8' />
 		<link rel='stylesheet' href='main.css' />
+		<script src="jquery.js"></script>
 		<script type='text/javascript' src='main.js' ></script>
 	</head>
 	<body onload='SamuInit();'>
+		<h1>Speak with Amminadab</h1>
+		<section id="state"><h3>State</h3><span>&nbsp;</span></section>
 		<div class='cntnr' id='scrt'>
-			<div id='chatarea'>
+			<section id='chatarea'>
 				&nbsp;
-			</div>
-			<div id='inputarea'>
+			</section>
+			<div class="clear"></div>
+			<section id='inputarea'>
+				<input type='text' id='mess_input' onkeydown='if (event.keyCode == 13) msg_send_clicked();' /> 
 				<input type='button' value='Send' id='send' disabled='true' onClick='msg_send_clicked();' />
-				<div style='overflow: hidden;padding-right: .5em;'>
-					<input type='text' id='message' onkeydown='if (event.keyCode == 13) msg_send_clicked();' /> 
-				</div>
-			</div>
+			</section>
 		</div>
 	</body>
 </html>
