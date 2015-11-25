@@ -22,10 +22,11 @@ socket.on('request', function(request) {
     client.on('data', function(data) {
         connection.sendUTF(data);
         console.log('Samu restponse: ' + data);
-        //client.destroy();
+
     });
     client.on('close', function() {
         console.log('Samu connection closed');
+        client.destroy();
     });
 
     connection.on('close', function(connection) {
