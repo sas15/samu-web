@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<title>Speak with Samu</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="main.css" />
-		<script type="text/javascript" src='main.js' ></script>
+		<meta charset='utf-8' />
+		<link rel='stylesheet' href='main.css' />
+		<script type='text/javascript' src='main.js' ></script>
 	</head>
 	<body onload='SamuInit();'>
 		<div class='cntnr' id='scrt'>
@@ -14,7 +14,7 @@
 			<div id='inputarea'>
 				<input type='button' value='Send' id='send' disabled='true' onClick='msg_send_clicked();' />
 				<div style='overflow: hidden;padding-right: .5em;'>
-					<input type='text' id='message' /> 
+					<input type='text' id='message' onkeydown='if (event.keyCode == 13) msg_send_clicked();' /> 
 				</div>
 			</div>
 		</div>

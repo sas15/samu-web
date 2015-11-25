@@ -7,13 +7,14 @@ requirements:
 [install nodejs and npm](https://github.com/nodejs/node)
 
 
-[Samu](https://github.com/nbatfai/samu)
+[Samu](https://github.com/sas15/amminadab)
 
 
 then cd to the directory, and:
 
 ```
 npm install websocket
+npm install net
 ```
 
 run the server:
