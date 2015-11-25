@@ -23,10 +23,24 @@ run the server:
 ```
 node server.js
 ```
+known bug:
+----
+```
+node.js:838
+    var cwd = process.cwd();
+                      ^
+Error: ENOENT, no such file or directory
+    at Function.startup.resolveArgv0 (node.js:838:23)
+    at startup (node.js:58:13)
+    at node.js:929:3
+```
+if you get this, simply run:
+```
+cd `pwd`; node server.js
+```
+
 
 client:
 -------
-
-- under the client directory copy all the files to your http daemon's directory
-- change the host in your main.js
-- enjoy
+- change the host in your main.js if required
+- enjoy on host:8080
