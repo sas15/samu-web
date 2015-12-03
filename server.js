@@ -45,7 +45,7 @@ http.createServer(function(request, response) {
 
 //samu
 var HOST = '127.0.0.1';
-var PORT = 50013;
+var PORT = 2006;
 
 var socket = new server({
     httpServer: http.createServer().listen(7268)
